@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar class="custom_header">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Parked  Vehicle
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!-- List of Sliding Items -->
+<div class="ion-padding">   
+<ion-list  *ngIf="parking.length > 0">
+  <ion-item-sliding  *ngFor="let x of parking let i=index;">
+    <ion-item>
+      <ion-label class="custom_card_heading">{{x.licence_plate}}</ion-label>
+	  <ion-note slot="end">
+      {{x.parked_date | date:"dd/MM/yyyy hh:mm a"}}
+      </ion-note>
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option class="enforce_login_btn bold" (click)="leave(x.id)">Leave</ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+<div  id= "no_car" *ngIf="error.length > 0">{{error}}</div> 
+</div>  
+
+</ion-content>

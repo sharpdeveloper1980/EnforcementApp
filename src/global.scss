@@ -1,0 +1,383 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+  font-family: myFirstFont;
+  src: url(assets/montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: medium;
+  src: url(assets/montserrat/Montserrat-Medium.ttf);
+}
+
+* {
+  font-family: myFirstFont !important;
+}
+
+a {
+  text-decoration: none;
+  color: #0054c1;
+}
+.medium {
+  font-family: medium !important;
+}
+.bold {
+  font-weight: bold !important;
+}
+
+.bg {
+  --ion-background-color: #e9e9e9;
+  --color: #150d36;
+}
+
+.login_image {
+  margin-top: -88px !important;
+  width: 290px !important;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+.header_icons {
+  font-size: 28px;
+  float: right;
+  margin-right: 16px;
+  color: white;
+}
+.login_header {
+  background: white;
+  margin: 0px;
+  margin-top: 17px;
+  border-radius: 16px;
+  height: 280px;
+  margin-bottom: 22px;
+}
+.login_heading {
+  color: black;
+}
+.custom_login_bg {
+  background: #c4bab1;
+  text-align: center;
+  padding: 35px 5px;
+  height: 185px;
+}
+.login_icon {
+  position: absolute;
+  left: 20px;
+  z-index: 99;
+  font-size: 24px;
+  color: gray;
+  bottom: 17px;
+}
+.login_input input {
+  padding-left: 22px !important;
+}
+.invalid-feedback {
+  position: absolute;
+  margin-top: 5px;
+  color: red;
+  font-size: 15px;
+}
+.invalid-form {
+  position: relative;
+  margin-top: 5px;
+  color: red;
+  font-size: 15px;
+}
+.ion-padding {
+  padding: 5px 19px;
+  position: relative;
+}
+.forgot_link {
+  color: gray;
+  font-size: 15px;
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 999;
+}
+.custom_btn {
+  width: 100%;
+  font-family: medium !important;
+}
+.login_bottom {
+  text-align: center;
+  margin-top: 20px;
+  color: gray;
+}
+.login_bottom a {
+  color: #ff8a04;
+  font-weight: bold;
+}
+.add.button-native {
+  background: red;
+}
+ion-button {
+  font-family: medium !important;
+}
+ion-button {
+  --background: #0054c1;
+  --border-radius: 25px !important;
+  height: 44px;
+}
+.eye_btn {
+  position: relative;
+  top: 20px;
+  right: 11px;
+  color: gray;
+  background: #faebd703;
+  float: right;
+  margin-top: -52px;
+  z-index: 9;
+}
+.eye_btn .eye_icon {
+  font-size: 24px;
+}
+.enforce_login_btn {
+  --background: #ff8a04 !important;
+}
+.home-a-tag {
+  --background: #fff !important;
+  color: #ff8a04;
+}
+
+.home-bg {
+  --background: url("assets/img/car_img.png") 0 0/100% 100% no-repeat;
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+  width: 100%;
+}
+.home-content-div {
+  background: #fff;
+  border-radius: 25px;
+  padding: 12px 4px;
+  margin: 38px;
+  position: absolute;
+  bottom: 40px;
+  background: rgba(255, 255, 255, 0.5);
+  right: 0;
+  left: 0;
+  width: 300px;
+  margin: 0 auto;
+}
+.work_log_btn {
+  margin: 12px 0px;
+}
+.logout_btn {
+  position: absolute;
+  font-size: 24px;
+  color: white;
+  right: 26px;
+  top: 20px;
+}
+.custom_header {
+  --background: #c4bab1;
+  --color: white;
+}
+ion-title {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.select-box-css {
+  border: 1px solid #afafaf42;
+}
+.label_cls {
+  color: #ff8a04;
+  margin-left: -15px;
+}
+.park-detail-div {
+  background: #8080803d;
+  padding: 9px;
+}
+.park_head {
+  color: #ff8a04;
+  font-size: 15px;
+}
+.parking-sub-category {
+  font-size: 13px;
+}
+.work-log-div {
+  padding: 16px;
+  border-bottom: 1px solid gray;
+}
+.work-log-span {
+  float: right;
+}
+ion-app.cameraView,
+ion-app.cameraView ion-content,
+ion-app.cameraView .nav-decor {
+  background: transparent none !important;
+}
+.ticket-text {
+  border: 1px solid #eaeaea;
+  margin-top: 8px;
+}
+.ticket_label {
+  font-size: 14px;
+  color: #ff8a04;
+}
+.orange {
+  color: #ff8a04;
+}
+
+.my-custom-class {
+  --border-radius: 50px;
+  text-align: center;
+}
+#no_car {
+  text-align: center;
+  margin-top: 41px;
+  color: gray;
+}
+ion-loading.my-loading-class {
+  .loading-wrapper {
+    background: transparent;
+    box-shadow: none;
+    width: 100px;
+    height: 90px;
+  }
+  ion-backdrop {
+    background-color: #fff;
+  }
+  --spinner-color: orange;
+}
+.custom_card_heading {
+  color: grey !important;
+}
+:root {
+  --ion-color-primary: #ff8a04;
+}
+.alert-button.sc-ion-alert-md {
+  font-weight: bold !important;
+}
+.ion-activatable.selected {
+  --background: #fff0e8 !important;
+}
+.text-center {
+  text-align: center;
+}
+#forget-btn {
+  margin-top: 15px;
+}
+.forget_msg {
+  color: gray;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.forget_msg .login_icon {
+  position: absolute;
+  left: 0;
+  margin: 0 auto;
+  top: 0;
+  right: 0;
+  font-size: 33px;
+}
+.chanhge-password-div {
+  margin-top: 20px;
+}
+#ticket_price {
+  display: none;
+}
+#licence {
+  //text-transform: uppercase;
+  width: 70%;
+}
+#verified {
+  color: green;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 3px;
+}
+
+.verify-div {
+  display: none;
+  float: right;
+  margin-top: 6px;
+  position: absolute;
+  right: 0;
+  z-index: 99999;
+  top: 34px;
+  width: 30%;
+}
+.verify-btn {
+	float: right;
+	position: absolute;
+	right: 0;
+	z-index: 99999;
+	top: 30px;
+	width: 30%;
+}
+.verify-atag{
+  height:37px;
+}
+#verfied_text {
+  color: green;
+  font-size: 12px;
+  position: absolute;
+  top: 4px;
+}
+#not_verified {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 3px;
+}
+
+.not-verify-div {
+  display: none;
+  float: right;
+  margin-top: 6px;
+  position: absolute;
+  right: 0;
+  z-index: 99999;
+  top: 34px;
+  width: 30%;
+}
+#not_verfied_text {
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  top: 4px;
+}
+.photo-up {
+  font-size: 19px;
+  position: absolute;
+  margin-left: 10px;
+}
+.click-pic {
+  display: none;
+}
+.resume-work {
+	margin-top: 20px;
+}

@@ -1,0 +1,105 @@
+<ion-header>
+	<ion-toolbar class="custom_header">
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			Verify Confirmed
+		</ion-title>
+		<a routerLink="/special-ticket" class="add">
+			<ion-icon class="header_icons" name="add-circle-outline"></ion-icon>         
+		</a>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<!-- <ion-icon name="camera-outline" (click)="openCam()"></ion-icon>
+		<img src="{{image}}"> -->
+	<form name="form" (ngSubmit)="f.form.valid && ticket(f)" #f="ngForm" method="post" id="parking_form">
+		<div class="ion-padding">
+			<ion-label class="ticket_label bold">Licence Plate</ion-label>
+			<ion-input autocapitalize="characters" (keydown)="onKeydown($event)" class="ticket-text" name="licence_plate" id="licence"
+				[(ngModel)]="licence_plate" #licence_plates="ngModel"
+				[ngClass]="{ 'is-invalid': f.submitted && licence_plates.invalid }" required></ion-input>
+			<div class="verify-btn">
+				<ion-button (click)="verifyLicence()" class="enforce_login_btn verify-atag">Verify</ion-button>
+			</div>
+			<div class="verify-div">
+				<ion-icon name="checkmark-circle-outline" id="verified"></ion-icon>
+				<span id="verfied_text">verified</span>
+			</div>
+			<div class="not-verify-div">
+				<ion-icon name="close-circle-outline" id="not_verified"></ion-icon>
+				<span id="not_verfied_text">not verified</span>
+			</div>
+			<div *ngIf="f.submitted && licence_plates.invalid" class="invalid-form">
+				<div *ngIf="licence_plates.errors.required">licence plate is required</div>
+			</div>
+		</div>
+
+		<div class="ion-padding click-pic" *ngIf="check_licence==0">
+			<ion-label class="ticket_label bold">Licence Plate Pic</ion-label>
+			<ion-icon name="camera-outline" class="photo-up" (click)="openCam()"></ion-icon>
+			<p *ngIf="image2.length>0">Image Preview</p>
+			<img src="{{image2}}" *ngIf="image2.length>0">
+			<!-- <ion-icon name="cloud-upload-outline" (click)="uploadFile()"></ion-icon> -->
+		</div>
+		<div class="ion-padding click-pic" *ngIf="check_licence==0">
+			<ion-label class="ticket_label bold">VIN Pic</ion-label>
+			<ion-icon name="camera-outline" class="photo-up" (click)="openCamVIN()"></ion-icon>
+			<p *ngIf="image.length>0">Image Preview</p>
+			<img src="{{image}}" *ngIf="image.length>0">
+			<!--<ion-icon name="cloud-upload-outline" (click)="uploadVIN()"></ion-icon>-->
+		</div>
+		<div class="ion-padding" *ngIf="verify.length>0">
+			<ion-list-header class="label_cls bold">
+				<ion-label>
+					Ticket Type
+				</ion-label>
+			</ion-list-header>
+			<ion-select [(ngModel)]="ticket_lookup" #ticket_lookups="ngModel"
+				[ngClass]="{ 'is-invalid': f.submitted && ticket_lookups.invalid }" required
+				placeholder="Please select zone" class="select-box-css" class="select-box-css" name="ticket_lookup"
+				(ionChange)="onChange($event)">
+				<ion-select-option *ngFor="let x of tickets let i=index;" value="{{x.id}}">
+					{{x.ticket_city_code}}-{{x.ticket_code}}</ion-select-option>
+			</ion-select>
+			<div *ngIf="f.submitted && ticket_lookups.invalid" class="invalid-form">
+				<div *ngIf="ticket_lookups.errors.required">Ticket type is required</div>
+			</div>
+		</div>
+		<div class="ion-padding" *ngIf="verify.length>0">
+			<ion-label class="ticket_label bold">Ticket number</ion-label>
+			<ion-input [(ngModel)]="ticket_no" name="ticket_no" #ticket_nos="ngModel"
+				[ngClass]="{ 'is-invalid': f.submitted && ticket_nos.invalid }" class="ticket-text" id="ticket_numbers"
+				required></ion-input>
+			<div *ngIf="f.submitted && ticket_nos.invalid" class="invalid-form">
+				<div *ngIf="ticket_nos.errors.required">Ticket number is required</div>
+			</div>
+		</div>
+		<ion-input [(ngModel)]="ticket_price" name="ticket_price" class="ticket-text" id="ticket_price"></ion-input>
+		<!-- List of Sliding Items -->
+		<div class="ion-padding" *ngIf="verify.length>0">
+			<a class="add">
+				<ion-button id="sub_btn" class="custom_btn enforce_login_btn" type="submit">Submit</ion-button>
+			</a>
+		</div>
+	</form>
+	<!-- <div class="ion-padding">
+		<p class="text-center bold orange">Parked Cars</p>
+		<ion-list *ngIf="parking.length > 0">
+			<ion-item-sliding *ngFor="let x of parking let i=index;">
+				<ion-item>
+					<ion-label class="custom_card_heading">{{x.licence_plate}}</ion-label>
+					<ion-note slot="end">
+						{{x.parked_date | date:"dd/MM/yyyy hh:mm a"}}
+					</ion-note>
+				</ion-item>
+				<ion-item-options side="end">
+					<ion-item-option class="enforce_login_btn bold" (click)="leave(x.id)">Leave</ion-item-option>
+				</ion-item-options>
+			</ion-item-sliding>
+		</ion-list>
+	</div>
+	<div  id= "no_car" *ngIf="error.length > 0">{{error}}</div>  -->
+</ion-content>

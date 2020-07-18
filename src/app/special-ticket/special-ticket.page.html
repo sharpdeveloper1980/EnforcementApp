@@ -1,0 +1,75 @@
+<ion-header>
+	<ion-toolbar class="custom_header">
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			Special Ticket
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<form name="form" (ngSubmit)="f.form.valid && special(f)" #f="ngForm" method="post">
+		<div class="ion-padding">
+			<ion-list-header class="label_cls bold">
+				<ion-label>
+					Ticket Type
+				</ion-label>
+			</ion-list-header>
+			<ion-select [(ngModel)]="ticket_lookup" #ticket_lookups="ngModel"
+				[ngClass]="{ 'is-invalid': f.submitted && ticket_lookups.invalid }" required
+				placeholder="Please select zone" class="select-box-css" name="ticket_lookup"
+				(ionChange)="onChange($event)">
+				<ion-select-option *ngFor="let x of tickets let i=index;" value="{{x.id}}">
+					{{x.special_ticket_city_code}}-{{x.special_ticket_code}}</ion-select-option>
+			</ion-select>
+			<div *ngIf="f.submitted && ticket_lookups.invalid" class="invalid-form">
+				<div *ngIf="ticket_lookups.errors.required">
+					Ticket type up is required
+				</div>
+			</div>
+		</div>
+
+		<div class="ion-padding">
+			<ion-label class="ticket_label bold">Ticket Number</ion-label>
+			<ion-input [(ngModel)]="ticket_no" name="ticket_no" #ticket_nos="ngModel"
+				[ngClass]="{ 'is-invalid': f.submitted && ticket_nos.invalid }" required class="ticket-text"
+				id="ticket_numbers"></ion-input>
+			<div *ngIf="f.submitted && ticket_nos.invalid" class="invalid-form">
+				<div *ngIf="ticket_nos.errors.required">Ticket number is required</div>
+			</div>
+		</div>
+
+		<div class="ion-padding">
+			<ion-label class="ticket_label bold">Licence Plate</ion-label>
+			<ion-input class="ticket-text" (keydown)="onKeydown($event)" autocapitalize="characters" name="licence_plate" [(ngModel)]="licence_plate" #licence_plates="ngModel"
+				[ngClass]="{ 'is-invalid': f.submitted && licence_plates.invalid }" id="special_licence" required></ion-input>
+			<div *ngIf="f.submitted && licence_plates.invalid" class="invalid-form">
+				<div *ngIf="licence_plates.errors.required">
+					licence plate is required
+				</div>
+			</div>
+		</div>
+		<div class="ion-padding">
+			<ion-label class="ticket_label bold">Licence Plate Pic</ion-label>
+			<ion-icon name="camera-outline" class="photo-up" (click)="openCam()"></ion-icon>
+			<p *ngIf="image2.length>0">Image Preview</p>
+			<img src="{{image2}}" *ngIf="image2.length>0" />
+			<!-- <ion-icon name="cloud-upload-outline" (click)="uploadFile()"></ion-icon> -->
+		</div>
+		<div class="ion-padding">
+			<ion-label class="ticket_label bold">VIN Pic</ion-label>
+			<ion-icon name="camera-outline" class="photo-up" (click)="openCamVIN()"></ion-icon>
+			<p *ngIf="image.length>0">Image Preview</p>
+			<img src="{{image}}" *ngIf="image.length>0" />
+			<!--<ion-icon name="cloud-upload-outline" (click)="uploadVIN()"></ion-icon>-->
+		</div>
+		<ion-input [(ngModel)]="ticket_price" name="ticket_price" class="ticket-text" id="ticket_price"></ion-input>
+		<div class="ion-padding">
+			<a class="add">
+				<ion-button class="custom_btn enforce_login_btn" type="submit">Submit</ion-button>
+			</a>
+		</div>
+	</form>
+</ion-content>

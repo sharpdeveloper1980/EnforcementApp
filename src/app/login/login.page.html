@@ -1,0 +1,47 @@
+  <ion-content class="bg"> 
+      <div class="ion-padding">    
+          <ion-card class="login_header">
+              <ion-card-header class="custom_login_bg">
+                <div class="login_heading">Login</div>
+              </ion-card-header>
+              <ion-card-content>
+                <img class="login_image" src="../assets/img/car.png">
+              </ion-card-content>
+          </ion-card>
+      </div>
+      <form name="form" (ngSubmit)="f.form.valid && login(f)" #f="ngForm" method="post">
+	 
+      <div class="ion-padding">   
+        <ion-icon name="person" class="login_icon"></ion-icon> 
+        <ion-item>          
+          <ion-input class="login_input" [(ngModel)]="email" #title="ngModel" [ngClass]="{ 'is-invalid': f.submitted && title.invalid }" required  name="email" placeholder="Username"></ion-input>
+        </ion-item> 
+        <div *ngIf="f.submitted && title.invalid" class="invalid-feedback">
+            <div *ngIf="title.errors.required">Username is required</div>
+        </div>
+      </div>
+      <div class="ion-padding" style="margin-top: 12px;">
+        <ion-icon name="key" class="login_icon"></ion-icon> 
+        <ion-item>          
+          <ion-input type="{{type}}" class="login_input"   [(ngModel)]="password" #pass="ngModel" [ngClass]="{ 'is-invalid': f.submitted && pass.invalid }" required name="password" placeholder="Password"></ion-input>
+		</ion-item>
+		<button *ngIf="!showPass" ion-button clear class="eye_btn" color="dark" type="button" item-right (click)="showPassword()"> 
+			<ion-icon name="eye" class="eye_icon" ></ion-icon>
+		</button>
+	   <button *ngIf="showPass" ion-button clear color="dark" type="button" class="eye_btn" item-right (click)="showPassword()"> 
+		  <ion-icon name="eye-off" class="eye_icon"></ion-icon>
+	   </button>
+		<div *ngIf="f.submitted && pass.invalid" class="invalid-feedback">
+            <div *ngIf="pass.errors.required">Password is required</div>
+        </div>
+        <a routerLink="/forget-password"  class="forgot_link">Forgot password ?</a>
+      </div>    
+    
+    <div class="ion-padding">    
+      <a class="add">
+        <ion-button class="custom_btn enforce_login_btn"  type="submit" >Login</ion-button>
+      </a>
+    </div>
+    </form>
+  </ion-content>
+  

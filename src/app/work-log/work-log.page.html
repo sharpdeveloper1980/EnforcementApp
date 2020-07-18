@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar class="custom_header">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Work log
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+	<div class="ion-padding" *ngIf="formatted.length > 0"> 
+    <p class="orange text-center">{{ today | date: 'MMMM , dd yyyy HH:mm' }}</p>   
+		<div class="work-log-div custom_card_heading">Logged in : <span class="work-log-span">{{start_actual_time | date : 'HH:mm'}}</span></div>
+		<div class="work-log-div custom_card_heading">Mins worked : <span class="work-log-span">{{total_min - lunch_time}}</span></div>
+		<div class="work-log-div custom_card_heading">Scanned : <span class="work-log-span">135</span></div>
+		<div class="work-log-div custom_card_heading">Scan / HR : <span class="work-log-span">45</span></div>
+    <div class="work-log-div custom_card_heading">Tickets : <span class="work-log-span">{{per_day_ticket}}</span></div>
+    <div class="work-log-div custom_card_heading">Total tickets : <span class="work-log-span">{{total_ticket}}</span></div>
+	</div>
+</ion-content>
